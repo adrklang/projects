@@ -6,7 +6,7 @@
 
 项目描述：宜立方商城是一个综合性的B2C平台，类似京东商城、天猫商城。会员可以在商城浏览商品、下订单，以及参加各种活动。宜立方商城采用分布式系统架构，子系统之间都是调用服务来实现系统之间的通信，使用http协议传递json数据方式实现。这样降低了系统之间的耦合度，提高了系统的扩展性。为了提高系统的性能使用redis做系统缓存，并使用redis实现session共享。为了保证redis的性能使用redis的集群。搜索功能使用solrCloud做搜索引擎。
 
-[![image](https://github.com/ZzXxL1994/e3mall/raw/master/jiagou.png)](https://github.com/ZzXxL1994/e3mall/blob/master/jiagou.png)后台管理系统：管理商品、订单、类目、商品规格属性、用户管理以及内容发布等功能。
+[![image](https://github.com/adrklang/projects/blob/master/e3mall/jiagou.png)](https://github.com/adrklang/projects/blob/master/e3mall/jiagou.png)后台管理系统：管理商品、订单、类目、商品规格属性、用户管理以及内容发布等功能。
 
 商城门户：用户可以在前台系统中进行注册、登录、浏览商品、首页、下单等操作。
 
