@@ -33,3 +33,29 @@
 6.Freemarker：FreeMarker是一个用Java语言编写的模板引擎，它基于模板来生成文本输出。FreeMarker与Web容器无关，即在Web运行时，它并不知道Servlet或HTTP。它不仅可以用作表现层的实现技术，而且还可以用于生成XML，JSP或Java 等。
 
 7.MyCAT：一个彻底开源的，面向企业应用开发的“大数据库集群”支持事务、ACID、可以替代Mysql的加强版数据库，可以低成本的将现有的单机数据库和应用平滑迁移到“云”端，解决数据存储和业务规模迅速增长情况下的数据瓶颈问题。
+
+8.Docker: 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
+
+9.Linux: Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。
+
+Linux使用以下命令永久开放端口
+##### fastdfs
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=22122/tcp --permanent
+firewall-cmd --zone=public --add-port=23000/tcp --permanent
+
+##### redis
+firewall-cmd --zone=public --add-port=6379/tcp --permanent
+
+##### zookeeper
+firewall-cmd --zone=public --add-port=2181/tcp --permanent
+
+##### solr
+firewall-cmd --zone=public --add-port=8983/tcp --permanent
+
+##### activemq
+firewall-cmd --zone=public --add-port=61616/tcp --permanent
+
+
+firewall-cmd --reload 重启防火墙即可
+firewall-cmd --zone=public --add-port=8161/tcp --permanent
