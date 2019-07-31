@@ -40,21 +40,21 @@
 
 Linux使用以下命令永久开放端口
 ##### fastdfs
-firewall-cmd --zone=public --add-port=80/tcp --permanent
-firewall-cmd --zone=public --add-port=22122/tcp --permanent
-firewall-cmd --zone=public --add-port=23000/tcp --permanent
+`firewall-cmd --zone=public --add-port=80/tcp --permanent`
+`firewall-cmd --zone=public --add-port=22122/tcp --permanent`
+`firewall-cmd --zone=public --add-port=23000/tcp --permanent`
 
 ##### redis
-firewall-cmd --zone=public --add-port=6379/tcp --permanent
+`firewall-cmd --zone=public --add-port=6379/tcp --permanent`
 
 ##### zookeeper
-firewall-cmd --zone=public --add-port=2181/tcp --permanent
+`firewall-cmd --zone=public --add-port=2181/tcp --permanent`
 
 ##### solr
-firewall-cmd --zone=public --add-port=8983/tcp --permanent
+`firewall-cmd --zone=public --add-port=8983/tcp --permanent`
 
 ##### activemq
-firewall-cmd --zone=public --add-port=61616/tcp --permanent
-firewall-cmd --zone=public --add-port=8161/tcp --permanent
+`firewall-cmd --zone=public --add-port=61616/tcp --permanent`
+`firewall-cmd --zone=public --add-port=8161/tcp --permanent`
 
-firewall-cmd --reload 重启防火墙即可
+`firewall-cmd --reload` 重启防火墙即可
