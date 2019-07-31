@@ -55,7 +55,6 @@ firewall-cmd --zone=public --add-port=8983/tcp --permanent
 
 ##### activemq
 firewall-cmd --zone=public --add-port=61616/tcp --permanent
-
+firewall-cmd --zone=public --add-port=8161/tcp --permanent
 
 firewall-cmd --reload 重启防火墙即可
-firewall-cmd --zone=public --add-port=8161/tcp --permanent
