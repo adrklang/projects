@@ -1,0 +1,8 @@
+version: '3'
+services:
+  activemq:
+    image: docker.io/webcenter/activemq:latest
+    container_name: activemq
+    ports:
+      - 61616:61616
+      - 8161:8161

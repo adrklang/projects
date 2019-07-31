@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  solr:
+    image: solr
+    restart: always
+    container_name: solr
+    ports:
+      - 8983:8983
+    volumes:
+      - ./solrdata:/opt/solrdata
+    privileged: true

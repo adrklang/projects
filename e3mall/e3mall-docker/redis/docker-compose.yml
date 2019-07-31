@@ -1,0 +1,11 @@
+version: '3'
+services:
+  redis:
+    container_name: redis
+    image: docker.io/redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - ${HOME}/redis/data:/data
+    privileged: true
