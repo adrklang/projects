@@ -89,7 +89,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>taotao-search-web</finalName>
+        <finalName>e3mall-search-web</finalName>
         <!-- 配置tomcat插件 -->
         <plugins>
             <plugin>

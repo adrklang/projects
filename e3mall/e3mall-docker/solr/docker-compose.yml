@@ -1,11 +1,11 @@
 version: '3.1'
 services:
   solr:
-    image: solr
+    build: lhstack
     restart: always
     container_name: solr
+    privileged: true
     ports:
       - 8983:8983
     volumes:
       - ./solrdata:/opt/solrdata
-    privileged: true
