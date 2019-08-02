@@ -1,4 +1,4 @@
-FROM solr
+FROM solr:8.1.1
 MAINTAINER lhstack <lhstack@foxmail.com>
 # 安装中文分词
 WORKDIR /opt/solr-8.1.1/server/solr-webapp/webapp/WEB-INF/lib
