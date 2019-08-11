@@ -1,0 +1,1 @@
+品优购项目需要搭建csa单点登录服务，搭建方案请参考CSDN: https://blog.csdn.net/zzq900503/article/details/54693267

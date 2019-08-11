@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  fastdfs:
+    image: registry.cn-beijing.aliyuncs.com/tianzuo/fastdfs
+    container_name: fastdfs
+    privileged: true
+    environment:
+      IP: 192.168.241.134
+      WEB_PORT: 80
+      FDFS_PORT: 22122
+    volumes:
+      - ./fastdfs/data:/var/local/fdfs
+    restart: always
+    ports:
+      - 80:80
+      - 22122:22122
+      - 23000:23000
+    network_mode: host

@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+  solr:
+    build: lhstack
+#    user: root
+    restart: always
+    container_name: solr
+    privileged: true
+    ports:
+      - 8983:8983
