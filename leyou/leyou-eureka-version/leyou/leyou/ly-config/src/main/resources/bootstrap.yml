@@ -1,0 +1,13 @@
+server:
+  port: 7788
+spring:
+  application:
+    name: ly-config
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native: #使用路径文件
+          search-locations: classpath:/config/
+        bootstrap: false

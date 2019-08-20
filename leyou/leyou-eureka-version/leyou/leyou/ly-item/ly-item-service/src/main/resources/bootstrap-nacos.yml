@@ -1,0 +1,29 @@
+nacos:
+  namespace: 780e9c80-8c61-4223-abae-cec5de46463a
+  addr: leyou.registry.center
+spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: ${nacos.namespace}
+        metadata:
+          info: 乐优商城Item服务
+        server-addr: ${nacos.addr}:8848
+      config:
+        file-extension: yml
+        namespace: ${nacos.namespace}
+        server-addr: ${nacos.addr}:8848
+        ext-config:
+          - dataId: ly-common.yml
+            refresh: true
+        shared-dataids: global-common.properties
+        refreshable-dataids: global-common.properties
+        timeout: 5000
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+  application:
+    name: ly-item-service
+  profiles:
+    active: prod

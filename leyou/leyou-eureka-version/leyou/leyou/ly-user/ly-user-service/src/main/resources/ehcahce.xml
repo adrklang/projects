@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false">
+    <!-- 指定一个文件目录，当EhCache把数据写到硬盘上时，将把数据写到这个文件目录下 -->
+    <diskStore path="E:\sx_blog\cache"/>
+
+    <!--默认缓存策略  timeToLiveSeconds:缓存过期时间-->
+    <defaultCache
+            eternal="false"
+            maxElementsInMemory="1000"
+            maxElementsOnDisk="0"
+            overflowToDisk="false"
+            diskPersistent="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="60000"
+            memoryStoreEvictionPolicy="LRU" />
+
+    <!--自定义缓存策略-->
+    <cache
+            name="user"
+            eternal="false"
+            maxElementsInMemory="100"
+            maxElementsOnDisk="0"
+            overflowToDisk="false"
+            diskPersistent="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="60000"
+            memoryStoreEvictionPolicy="LRU" />
+</ehcache>

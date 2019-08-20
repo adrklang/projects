@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ly-sms-service
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: ly-config
+      fail-fast: true
+  profiles:
+    active: prod
+port:
+  eureka: 8761
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${port.eureka}/eureka
+    fetch-registry: true
+    register-with-eureka: true

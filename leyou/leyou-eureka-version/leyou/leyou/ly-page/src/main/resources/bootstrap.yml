@@ -1,0 +1,23 @@
+port:
+  eureka: 8761
+spring:
+  application:
+    name: ly-page
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: prod
+  cloud:
+    config:
+      discovery:
+        service-id: ly-config
+        enabled: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${port.eureka}/eureka/

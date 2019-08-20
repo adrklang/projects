@@ -1,0 +1,20 @@
+server:
+  port: 10000
+spring:
+  datasource:
+    druid:
+      username: root
+      password: 123456
+      url: jdbc:mysql://db.mysql:3306/leyou?useSSL=true&serverTimezone=UTC
+      initial-size: 20
+      max-active: 200
+      max-wait: 60000
+      max-wait-thread-count: 10
+      min-idle: 20
+      query-timeout: 30000
+      web-stat-filter:
+        enabled: true
+      stat-view-servlet:
+        enabled: true
+mybatis:
+  type-aliases-package: com.leyou.user.pojo

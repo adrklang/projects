@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ly-zuul-gateway
+  profiles:
+    active: prod
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: ly-config
+      fail-fast: true
+port:
+  eureka: 8761
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${port.eureka}/eureka/
+    registry-fetch-interval-seconds: 5
+

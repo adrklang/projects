@@ -1,0 +1,14 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: ly-registry
+eureka:
+  client:
+    fetch-registry: false #不用拉取服务
+    register-with-eureka: false #不用在eureka中注册自己
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  instance:
+    prefer-ip-address: true
+    hostname: localhost

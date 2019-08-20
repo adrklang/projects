@@ -1,0 +1,8 @@
+server:
+  port: 7665
+ly:
+  sms:
+    accessKeyId: # you aliyun accessKeyId
+    accessKeySecret: # you aliyun accessKeySecret
+    signName: # you aliyun signName
+    verifyCodeTemplate: # you aliyun verifyCodeTemplate

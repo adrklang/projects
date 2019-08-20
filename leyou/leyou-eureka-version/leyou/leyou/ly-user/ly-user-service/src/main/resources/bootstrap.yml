@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ly-user
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        service-id: ly-config
+        enabled: true
+  profiles:
+    active: prod
+port:
+  eureka: 8761
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${port.eureka}/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+    hostname: localhost

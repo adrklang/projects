@@ -1,0 +1,23 @@
+port:
+  eureka: 8761
+spring:
+  application:
+    name: ly-cart
+  profiles:
+    active: prod
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: ly-config
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    registry-fetch-interval-seconds: 15
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${port.eureka}/eureka

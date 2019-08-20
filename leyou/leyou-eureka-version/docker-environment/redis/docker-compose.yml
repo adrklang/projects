@@ -1,0 +1,11 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    container_name: redis
+    privileged: true
+    command: redis-server --requirepass leyou_lhstack
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis_data:/data
