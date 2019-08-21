@@ -1,0 +1,8 @@
+server:
+  port: 7665
+ly:
+  sms:
+    accessKeyId: # you accessKeyId
+    accessKeySecret: # you accessKeySecret
+    signName: # you signName
+    verifyCodeTemplate: # you verifyCodeTemplate

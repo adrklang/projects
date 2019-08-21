@@ -1,0 +1,14 @@
+server:
+  port: 9995
+spring:
+  data:
+    elasticsearch:
+      cluster-name: master-elasticsearch
+      cluster-nodes: localhost:9300
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:search-ehcahce.xml
+feign:
+  hystrix:
+    enabled: true

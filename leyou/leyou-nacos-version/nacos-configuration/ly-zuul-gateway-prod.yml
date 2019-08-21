@@ -1,0 +1,74 @@
+server:
+  port: 9999
+zuul:
+  prefix: /api
+  #转发host
+  add-host-header: true
+  #解决cookie写入问题
+  sensitive-headers:
+  ribbon:
+    eager-load:
+      enabled: true
+  routes:
+    ly-item-service:
+      id: item-service
+      path: /item/**
+      service-id: ly-item-service
+    ly-search:
+      id: search
+      path: /search/**
+      service-id: ly-search
+      stripPrefix: true
+    ly-cart:
+      id: cart
+      path: /cart/**
+      service-id: ly-cart
+      stripPrefix: true
+    ly-page:
+      id: page
+      path: /page/**
+      service-id: ly-page
+      stripPrefix: true
+    ly-user:
+      id: user
+      path: /user/**
+      service-id: ly-user
+      stripPrefiex: true
+    ly-file:
+      id: zuul-file
+      path: /file/**
+      service-id: ly-file
+      stripPrefix: true
+    ly-boot-admin:
+      id: boot-admin
+      path: /admin/**
+      service-id: ly-boot-admin
+      stripPrefix: true
+    ly-order:
+      id: order
+      path: /order-service/**
+      service-id: ly-order
+      stripPrefix: true
+    ly-auth:
+      id: ly-auth
+      path: /auth/**
+      service-id: ly-auth
+      stripPrefix: true
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 2000
+hystrix:
+  command:
+    execution:
+      isolation:
+        thread:
+          timeoutInMilliseconds: 5000
+ly:
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item

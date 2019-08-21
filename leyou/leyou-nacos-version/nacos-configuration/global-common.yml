@@ -1,0 +1,69 @@
+spring:
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    enable: true
+    base-url: http://leyou.zipkin.com:9411/
+  boot:
+    admin:
+      client:
+        url: http://leyou.admin.server:9998 #全局admin配置
+  main:
+    allow-bean-definition-overriding: true
+  jackson: #全局json配置
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+  rabbitmq: #全局rabbitmq配置
+    virtual-host: /leyou
+    username: #rabbit username
+    password: #rabbi password
+    port: 5672
+    host: leyou.rabbit.com
+    connection-timeout: 60000
+    template:
+      retry:
+        enabled: true
+        initial-interval: 10000ms
+        max-interval: 30000ms
+        multiplier: 2
+      exchange: ly.item.exchange
+    publisher-confirms: true
+  redis: #全局redis配置
+    host: leyou.redis.com
+    port: 6379
+    password: # redis password
+    jedis:
+      pool:
+        max-active: 16
+        max-idle: 16
+        max-wait: 60ms
+        min-idle: 6
+  cache: #全局缓存配置
+    type: ehcache
+    ehcache:
+      config: classpath:ehcahce.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+ly:
+  jwt:
+    secret: ly@Login(Auth}*^31)&yun6%f3q2 # 登录校验的密钥
+    pubKeyPath: E:\\leyou\\projects\\key\\rsa.pub # 公钥地址
+    priKeyPath: E:\\leyou\\projects\\key\\rsa.pri # 私钥地址
+    expire: 30 # 过期时间,单位分钟
+    cookieName: LY_TOKEN
+  worker:
+    workerId: 1
+    dataCenterId: 1
+  pay:
+    appID: #you appId
+    mchID: #you mchId
+    key: # you key
+    httpConnectTimeoutMs: 1000
+    httpReadTimeoutMs: 8000
+    tradeType: NATIVE
+    spbillCreateIp: 127.0.0.1
+    notifyUrl: # you notifyUrl

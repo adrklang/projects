@@ -1,0 +1,8 @@
+server:
+  port: 9998
+spring:
+  boot:
+    admin:
+      monitor:
+        connect-timeout: 5000
+        default-retries: 3

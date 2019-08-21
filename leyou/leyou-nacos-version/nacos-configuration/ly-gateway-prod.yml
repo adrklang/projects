@@ -1,0 +1,85 @@
+server:
+  port: 9999
+spring:
+  cloud:
+    gateway:
+      routes:
+        #搜索服务路由
+        - id: ly-search
+          uri: lb://ly-search
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - StripPrefix=2
+        #page路由
+        - id: ly-page
+          uri: lb://ly-page
+          predicates:
+            - Path=/api/page/**
+          filters:
+            - StripPrefix=2
+        #订单服务
+        - id: ly-order
+          uri: lb://ly-order
+          predicates:
+            - Path=/api/order-service/**
+          filters:
+            - StripPrefix=2
+        #user路由
+        - id: ly-user
+          uri: lb://ly-user
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+        #授权中心路由
+        - id: ly-auth
+          uri: lb://ly-auth
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=2
+        #admin
+        - id: ly-boot-admin
+          uri: lb://ly-boot-admin
+          predicates:
+            - Path=/api/admin/**
+          filters:
+            - StripPrefix=2
+        #文件服务
+        - id: ly-file
+          uri: lb://ly-file
+          predicates:
+            - Path=/api/file/**
+          filters:
+            - StripPrefix=2
+        #item服务
+        - id: ly-item-service
+          uri: lb://ly-item-service
+          predicates:
+            - Path=/api/item/**
+          filters:
+            - name: EditValid
+              args:
+                methodsName: POST,PUT,DELETE #简单处理增删改验证
+            - name: StripPrefix
+              args:
+                parts: 2
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 2000
+hystrix:
+  command:
+    execution:
+      isolation:
+        thread:
+          timeoutInMilliseconds: 5000
+ly:
+  filter:
+    allowPaths:
+      - /auth
+      - /search
+      - /user/register
+      - /user/check
+      - /user/code
+      - /item

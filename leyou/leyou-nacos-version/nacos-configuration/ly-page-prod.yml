@@ -1,0 +1,12 @@
+server:
+  port: 8085
+spring:
+  thymeleaf:
+    cache: true
+    mode: HTML5
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcahce.xml
+page:
+  out-path: E:\\乐优商城\\projects\\leyou-portal\\items\\

@@ -1,0 +1,24 @@
+server:
+  port: 9997
+fdfs:
+  so-timeout: 2500
+  connect-timeout: 600
+  thumb-image: # 缩略图
+    width: 60
+    height: 60
+  tracker-list: # tracker地址
+    - leyou.images.repository:22122
+  web-server-url: http://leyou.images.repository:8899/
+spring:
+  http:
+    multipart:
+      max-file-size: 100MB # 最大支持文件大小
+      max-request-size: 100MB # 最大支持请求大小
+ly:
+  upload:
+    baseUrl: http://leyou.images.repository:8899/
+    allowTypes:
+      - image/jpeg
+      - image/png
+      - image/bmp
+      - image/gif
