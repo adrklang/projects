@@ -1,0 +1,16 @@
+version: '3'
+services:
+  fastdfs:
+    image: registry.cn-beijing.aliyuncs.com/tianzuo/fastdfs
+    container_name: fastdfs
+    privileged: true
+    ports:
+      - 8899:80
+      - 22122:22122
+      - 23000:23000
+    environment:
+      IP: 39.105.148.214
+      WEB_PORT: 80
+    volumes:
+      - ./data:/var/local/fdfs
+    hostname: leyou

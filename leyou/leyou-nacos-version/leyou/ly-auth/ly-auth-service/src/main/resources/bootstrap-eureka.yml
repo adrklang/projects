@@ -1,0 +1,22 @@
+port:
+  eurkea: 8761
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${port.eurkea}/eureka
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: ly-config
+      fail-fast: true
+  profiles:
+    active: prod
+  application:
+    name: ly-auth

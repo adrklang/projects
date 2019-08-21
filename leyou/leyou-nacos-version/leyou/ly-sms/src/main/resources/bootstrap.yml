@@ -1,0 +1,20 @@
+nacos:
+  namespace: c5f1fb7c-008c-4ff0-8543-2566f7021114
+  server-addr: leyou.registry.center
+spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: ${nacos.namespace}
+        server-addr: ${nacos.server-addr}:8848
+      config:
+        shared-dataids: global-common.yml
+        refreshable-dataids: global-common.yml
+        file-extension: yml
+        namespace: ${nacos.namespace}
+        timeout: 5000
+        server-addr: ${nacos.server-addr}:8848
+  application:
+    name: ly-sms-service
+  profiles:
+    active: prod

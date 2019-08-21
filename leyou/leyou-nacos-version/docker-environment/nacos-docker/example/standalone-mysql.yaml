@@ -1,0 +1,48 @@
+version: "2"
+services:
+  nacos:
+    image: nacos/nacos-server:latest
+    container_name: nacos
+    privileged: true
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_MASTER_SERVICE_HOST=mysql-master
+      - MYSQL_MASTER_SERVICE_DB_NAME=nacos_devtest
+      - MYSQL_MASTER_SERVICE_PORT=3306
+      - MYSQL_SLAVE_SERVICE_HOST=mysql-slave
+      - MYSQL_SLAVE_SERVICE_PORT=3305
+      - MYSQL_MASTER_SERVICE_USER=radmin
+      - MYSQL_MASTER_SERVICE_PASSWORD=lhstack_root_me
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+      - "9555:9555"
+    depends_on:
+      - mysql-slave
+    hostname: leyou
+    restart: on-failure
+  mysql-master:
+    container_name: mysql-master
+    privileged: true
+    image: nacos/nacos-mysql-master:latest
+    env_file:
+      - ../env/mysql-common.env
+      - ../env/mysql-master.env
+    volumes:
+      - ./mysql-master:/var/lib/mysql
+  mysql-slave:
+    container_name: mysql-slave
+    privileged: true
+    image: nacos/nacos-mysql-slave:latest
+    env_file:
+      - ../env/mysql-common.env
+      - ../env/mysql-slave.env
+    volumes:
+      - ./mysql-slave:/var/lib/mysql
+    depends_on:
+      - mysql-master
+
