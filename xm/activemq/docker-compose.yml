@@ -1,0 +1,12 @@
+version: '3'
+services:
+  activemq:
+    image: webcenter/activemq
+    container_name: activemq
+    ports:
+      - 8161:8161
+      - 61616:61616
+    privileged: true
+    restart: always
+    volumes:
+      - ./conf:/opt/activemq/conf

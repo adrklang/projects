@@ -1,0 +1,13 @@
+version: '3'
+services:
+  storage:
+    image: registry.cn-hangzhou.aliyuncs.com/maihx/fastdfs
+    container_name: storage
+    network_mode: host
+    command: sh storage.sh
+    restart: always
+    privileged: true
+    environment:
+      TRACKER_IP: 192.168.73.129:22122
+      GROUP_NAME: group1
+      SERVER_PORT: 8899

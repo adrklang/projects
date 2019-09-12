@@ -1,0 +1,9 @@
+version: '3'
+services:
+  fastdfs:
+    image: registry.cn-hangzhou.aliyuncs.com/maihx/fastdfs
+    container_name: fastdfs_tracker
+    privileged: true
+    network_mode: host
+    command: sh tracker.sh
+    restart: always
